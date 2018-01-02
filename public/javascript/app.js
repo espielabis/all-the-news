@@ -96,7 +96,7 @@ $(document).ready(function(){
 		var commentText = '';
 		$.getJSON('comments/'+articleId, function(data){
 			for(var i = 0; i < data.length; i++){
-				commentText = commentText + '<div class="well">' + data[i].name + " said:    " + data[i].comment + "             "+ '<button id="'+ data[i]._id+'" class="glyphicon glyphicon-remove text-danger deletecomment"> delete </button> '+'</div>';
+				commentText = commentText + '<div class="well">' + data[i].name + " said:    " + data[i].comment + "  "+ '<button id="'+ data[i]._id+'" class="glyphicon glyphicon-remove text-danger deletecomment"> </button> '+'</div>';
 			}
 			$("#articleComments").append(commentText);
 		});
