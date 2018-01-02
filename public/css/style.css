@@ -14,3 +14,7 @@ body{
 	background: url(/images/background.jpeg);
 
 }
+img {
+    vertical-align: middle;
+    width: 200px;
+	}

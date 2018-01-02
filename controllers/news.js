@@ -19,31 +19,31 @@ var Comments = require("../models/comments");
 var url = "https://www.nytimes.com/";
 
 // Test Route To Verify Scraping Works From Route
-router.get('/test', function(req, res) {
-    // body of the html with request
-    request(url, function(error, response, html) {
-        // load that into cheerio and save it to $ for a shorthand selector
-        var $ = cheerio.load(html);
-		var result = [];
-		$("article").each(function(i, element) {
-			var title = $(element).find("h1.story-heading").text().trim() ||
-        $(element).find("h2.story-heading").text().trim() ||
-        $(element).find("h3.story-heading").text().trim();
-			var storyLink = $(element).find("a").attr("href")||$(element).children("a.story-link");
-			var imgLink = $(element).find("img").attr("src");
-			var summary = $(element).find("p.summary").text().trim();
-			summary = summary.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
-			result.push({
-				Title: title,
-				Story: storyLink,
-				Link: imgLink,
-				Summary: summary
-			});
-		});
-		console.log(result);
-		res.send(result);
-    });
-});
+// router.get('/test', function(req, res) {
+//     // body of the html with request
+//     request(url, function(error, response, html) {
+//         // load that into cheerio and save it to $ for a shorthand selector
+//         var $ = cheerio.load(html);
+// 		var result = [];
+// 		$("article").each(function(i, element) {
+// 			var title = $(element).find("h1.story-heading").text().trim() ||
+//         $(element).find("h2.story-heading").text().trim() ||
+//         $(element).find("h3.story-heading").text().trim();
+// 			var storyLink = $(element).find("a").attr("href")||$(element).children("a.story-link");
+// 			var imgLink = $(element).find("img").attr("src");
+// 			var summary = $(element).find("p.summary").text().trim();
+// 			summary = summary.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
+// 			result.push({
+// 				Title: title,
+// 				Story: storyLink,
+// 				Link: imgLink,
+// 				Summary: summary
+// 			});
+// 		});
+// 		console.log(result);
+// 		res.send(result);
+//     });
+// });
 
 // Default route renders the index handlebars view
 router.get('/', function(req, res){
