@@ -65,10 +65,15 @@ $(document).ready(function(){
 
 	// Function to build article display
 	var showArticle = function(article) {
+
 		$('#title').text(article.title);
 		$("#image").removeClass("hidden");
 		$('#image').attr('src', article.imgLink);
-		$('#summary').text(article.summary);
+			if (article.summary){
+				$('#summary').text(article.summary);
+			} else {
+					$('#summary').text("No summary available");
+			}
 		$("#readArticle").removeClass("hidden");
 		$('#article').attr('href', article.storyLink);
 		$("#getArticles").addClass("hidden");
