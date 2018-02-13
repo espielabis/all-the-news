@@ -14,7 +14,7 @@ mongoose.Promise = Promise;
 // Mongodb models
 var Articles = require("../models/articles");
 var Comments = require("../models/comments");
-
+// var db = require("./models");
 // Website To Be Scraped
 var url = "https://www.nytimes.com/";
 
